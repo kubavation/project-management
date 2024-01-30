@@ -1,8 +1,5 @@
 package com.durys.jakub.projectmanagement.cqrs;
 
-import org.springframework.stereotype.Component;
-
-@Component
 class SpringCommandGateway implements CommandGateway {
 
     private final CommandHandlerProvider commandHandlerProvider;

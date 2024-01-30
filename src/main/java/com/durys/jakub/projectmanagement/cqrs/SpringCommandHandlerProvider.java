@@ -1,14 +1,13 @@
 package com.durys.jakub.projectmanagement.cqrs;
 
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+
 class SpringCommandHandlerProvider implements CommandHandlerProvider {
 
     private final ConfigurableListableBeanFactory factory;
