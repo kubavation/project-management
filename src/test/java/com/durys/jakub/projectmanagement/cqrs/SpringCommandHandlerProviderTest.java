@@ -1,5 +1,7 @@
 package com.durys.jakub.projectmanagement.cqrs;
 
+import com.durys.jakub.projectmanagement.cqrs.testmodels.TestCommand;
+import com.durys.jakub.projectmanagement.cqrs.testmodels.TestCommandHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +21,7 @@ class SpringCommandHandlerProviderTest {
 
         var command = new TestCommand();
 
-        CommandHandler<TestCommand, Void> handler = commandHandlerProvider.findCommandHandlerFor(command);
+        CommandHandler<TestCommand, Integer> handler = commandHandlerProvider.findCommandHandlerFor(command);
 
         assertNotNull(handler);
         assertEquals(TestCommandHandler.class, handler.getClass());
@@ -28,13 +30,3 @@ class SpringCommandHandlerProviderTest {
 }
 
 
-class TestCommand implements Command<Void> {}
-
-@Component
-class TestCommandHandler implements CommandHandler<TestCommand, Void> {
-
-    @Override
-    public Void handle(TestCommand testCommand) {
-        return null;
-    }
-}
