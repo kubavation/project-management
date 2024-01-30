@@ -1,4 +1,4 @@
 package com.durys.jakub.projectmanagement.cqrs;
 
-public interface Command {
+public interface Command<R> {
 }
