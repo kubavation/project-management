@@ -1,6 +1,7 @@
 package com.durys.jakub.projectmanagement.cqrs;
 
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,4 +17,10 @@ class CqrsConfiguration {
     CommandGateway commandGateway(CommandHandlerProvider commandHandlerProvider) {
         return new SpringCommandGateway(commandHandlerProvider);
     }
+
+    @Bean
+    EventPublisher eventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        return new SpringEventPublisher(applicationEventPublisher);
+    }
+
 }
